@@ -1,38 +1,111 @@
-.App {
-  text-align: center;
+.width-limitation-wrapper {
+  display: flex;
+  border: 1px solid red;
+  width: 1260px;
+  margin: 0 auto;
 }
+header {
+  align-items: center;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+  nav {
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+      a {
+        font-weight: bold;
+        text-decoration: none;
+      }
+    }
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header, main section, footer {
+  padding: 30px 150px;
+  border: 1px dotted green;
+}
+
+footer {
+    >div {
+      flex: 1;
+
+      h6 {
+        margin: 0;
+        font-size: 13px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        margin-top: 10px;
+
+        a {
+          text-decoration: none;
+          font-size: 12px;
+        }
+      }
+    }
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-none {
+  flex: none;
+}
+
+.padding {
+  padding: 10px;
+}
+
+.border {
+  border: 1px solid black;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.default-gap {
+  gap: 20px;
+}
+
+.default-padding {
+ padding: 20px;
+}
+
+#reservation-form {
+  display: grid; 
+  max-width: 200px; 
+  gap: 20px;
+}
+
+.input-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 3px;
+
+  label {
+    display: block;
+  }
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+form .error {
+  font-size: 10px;
+  color: red;
 }
