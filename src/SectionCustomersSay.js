@@ -33,7 +33,7 @@ function SectionCustomersSay() {
             <h2>Testimonials</h2>
             <div className="flex-container default-gap">
                 {testimonials.map((testimonial, index) => (
-                    <BoxTestimonial testimonial={testimonial} />
+                    <BoxTestimonial testimonial={testimonial} key={index} />
                 ))}
             </div>
         </section>

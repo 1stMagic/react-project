@@ -14,7 +14,7 @@ export function updateTimes(selectedDate) {
 }
 
 
-function Main({ bookings, submitForm, time, callReducer, bookingConfirmed }) {
+function BookingPage({ bookings, submitForm, time, callReducer, bookingConfirmed }) {
   const [date, setDate] = useState("")
   const [fieldErrors, setFieldErrors] = useState([])
   const [numberOfGuests, setNumberOfGuests] = useState()
@@ -73,9 +73,9 @@ function Main({ bookings, submitForm, time, callReducer, bookingConfirmed }) {
     if (!value) {
       setFieldErrors(prev => prev.includes("date") ? prev : [...prev, "date"])
     } else {
-      handleDateChange(value)
       setFieldErrors(prev => prev.filter(error => error !== "date"));
     }
+    handleDateChange(value)
   }
 
   function checkTime(value) {
@@ -92,7 +92,6 @@ function Main({ bookings, submitForm, time, callReducer, bookingConfirmed }) {
     if (!value || Number(value) < 1) {
       setFieldErrors(prev => prev.includes("numberOfGuests") ? prev : [...prev, "numberOfGuests"])
     } else {
-
       setFieldErrors(prev => prev.filter(error => error !== "numberOfGuests"));
     }
   }
@@ -121,7 +120,7 @@ function Main({ bookings, submitForm, time, callReducer, bookingConfirmed }) {
             <form className="border default-padding" id="reservation-form" aria-label="Table reservation form" onSubmit={handleSubmit}>
               <div className="input-wrapper">
                 <label htmlFor="res-date">Choose date</label>
-                <input type="date" id="res-date" value={date} onChange={(event) => checkDate(event.target.value)} />
+                <input type="date" id="res-date" value={date} onChange={(event) => checkDate(event.target.value)} required />
                 {fieldErrors.includes("date") &&
                   <span className="error">Please select a date!</span>
                 }
@@ -149,6 +148,7 @@ function Main({ bookings, submitForm, time, callReducer, bookingConfirmed }) {
                   min="1"
                   max="10"
                   id="guests"
+                  required
                   value={numberOfGuests}
                   onChange={(event) => checkNumberOfGuest(event.target.value)}
                 />
@@ -159,7 +159,7 @@ function Main({ bookings, submitForm, time, callReducer, bookingConfirmed }) {
 
               <div className="input-wrapper">
                 <label htmlFor="occasion">Occasion</label>
-                <select id="occasion" value={occasion} onChange={(event) => checkOccasion(event.target.value)}>
+                <select id="occasion" value={occasion} onChange={(event) => checkOccasion(event.target.value)} required>
                   <option value="">Please select&hellip;</option>
                   <option value="Birthday">Birthday</option>
                   <option value="Anniversary">Anniversary</option>
@@ -169,8 +169,7 @@ function Main({ bookings, submitForm, time, callReducer, bookingConfirmed }) {
                   <span className="error">Please select an occasion!</span>
                 }
               </div>
-              <input type="submit" value="Make Your reservation" aria-label="Make Your reservation" />
-
+              <input role="button" type="submit" value="Make Your reservation" aria-label="Make Your reservation" required />
             </form>
           </section>
         </div>
@@ -179,4 +178,4 @@ function Main({ bookings, submitForm, time, callReducer, bookingConfirmed }) {
   );
 }
 
-export default Main;
+export default BookingPage;
