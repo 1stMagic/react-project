@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom"
 
+// Hero section with intro text and a button leading to the booking page
 function SectionCallToAction() {
     const navigate = useNavigate();
 
+    // Navigate to the reservation form
     function goToReserveATable() {
         navigate("/booking")
     }

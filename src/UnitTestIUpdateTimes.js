@@ -1,3 +1,5 @@
+// Picking a date should call fetchAPI again and replace the times shown.
+// Note: this file has no imports (render, screen, fireEvent, vi, Main) of its own.
 test("updateTimes loads available times for selected date", () => {
   const initialTimes = ["17:00", "18:00"];
   const updatedTimes = ["20:00", "21:00"];

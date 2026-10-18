@@ -2,6 +2,7 @@
 import './App.css';
 import { Link } from "react-router-dom";
 
+// Primary navigation; only Home and Reservations are routed so far, the rest are placeholders
 function Nav() {
   return (
     <>

@@ -1,5 +1,6 @@
 import { Star } from "lucide-react";
 
+// Single testimonial card: star rating, reviewer initial and name, review text
 function BoxTestimonial({testimonial}) {
     return (
         <div className="testimonial flex-container flex-column border padding flex-1">

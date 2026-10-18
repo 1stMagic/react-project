@@ -1,3 +1,4 @@
+// Card for one menu special: image, name, price, description and order link
 function BoxSpecial({special}) {
     return (
     <div className="special border flex-container flex-column border-radius">

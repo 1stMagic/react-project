@@ -10,11 +10,13 @@ import Footer from './Footer';
 import { Routes, Route, useNavigate } from "react-router-dom"
 import { useState, useReducer } from "react";
 
+// Root component: shared layout (header/footer), routes and booking state
 function App() {
   const [bookings, setBookings] = useState(0)
   const [bookingConfirmed, setBookingConfirmed] = useState(false)
   const navigate = useNavigate();
 
+  // Send the booking to the API and, on success, bump the count and show confirmation
   function submitForm(formData) {
     const increaseBookings = window.submitAPI(formData)
 
@@ -24,6 +26,7 @@ function App() {
     }
   }
 
+  // Selected reservation time, kept in a reducer (default 18:30)
   const [time, dispatch] = useReducer(timeReducer, "18:30")
 
   function timeReducer(time, action) {

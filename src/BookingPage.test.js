@@ -7,6 +7,7 @@ import BookingPage from "./BookingPage";
 import { initializeTimes, updateTimes } from "./BookingPage";
 
 
+// The page heading is rendered (fetchAPI is mocked since it normally lives on window)
 test('Renders the BookingForm heading', () => {
   window.fetchAPI = jest.fn().mockReturnValue(["17:00", "18:00"])
   render(<BookingPage bookings={0} handleFormSubmit={() => {}} />);
@@ -14,6 +15,7 @@ test('Renders the BookingForm heading', () => {
   expect(headingElement).toBeInTheDocument();
 });
 
+// initializeTimes returns whatever fetchAPI provides
 test('Initialize Times Return Value', () => {
   window.fetchAPI = jest.fn().mockReturnValue(["17:00", "18:00"])
 
@@ -22,6 +24,7 @@ test('Initialize Times Return Value', () => {
   expect(times[0]).toBe("17:00")
 })
 
+// updateTimes returns the times fetchAPI provides for the chosen date
 test('Update Times Return Value', () => {
   window.fetchAPI = jest.fn().mockReturnValue(["17:00", "18:00"])
 
@@ -30,6 +33,7 @@ test('Update Times Return Value', () => {
   expect(times[times.length - 1]).toBe("18:00")
 })
 
+// Checks that localStorage works in the jsdom test environment
 test('Write and Read LocalStorage', () => {
   localStorage.setItem("restaurant", "Little Lemon");
 
@@ -37,6 +41,7 @@ expect(localStorage.getItem("restaurant")).toBe("Little Lemon");
 })
 
 
+// Filling a field and then clearing it should show that field's error message
 test('Validate All Fields', async () => {
   window.fetchAPI = jest.fn().mockReturnValue(["17:00", "18:00"])
   render(<BookingPage bookings={0} handleFormSubmit={() => {}} callReducer={() => {}} />);
@@ -70,6 +75,7 @@ test('Validate All Fields', async () => {
 
 })
 
+// Submitting an empty form shows all errors and never calls submitForm
 test('Submit Form with empty fields shows errors and does not submit', () => {
   window.fetchAPI = jest.fn().mockReturnValue(["17:00", "18:00"])
   const mockSubmitForm = jest.fn();
@@ -84,6 +90,7 @@ test('Submit Form with empty fields shows errors and does not submit', () => {
   expect(screen.getByText("Please select an occasion!")).toBeInTheDocument();
 })
 
+// Submitting a filled-in form calls submitForm once with the entered values
 test('Submit Form with valid fields calls submitForm', () => {
   window.fetchAPI = jest.fn().mockReturnValue(["17:00", "18:00"])
   const mockSubmitForm = jest.fn();

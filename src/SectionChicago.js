@@ -1,3 +1,4 @@
+// "About" section describing the Chicago location
 function SectionChicago() {
     return (
         <section id="section-chicago">

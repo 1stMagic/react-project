@@ -6,6 +6,7 @@ import SectionSpecials from "./SectionSpecials.js"
 import SectionCustomersSay  from "./SectionCustomersSay.js"
 import SectionChicago from "./SectionChicago.js"
 
+// Landing page: stacks the home page sections in order
 function Main() {
   return (
     <>

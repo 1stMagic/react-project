@@ -3,17 +3,20 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 
+// Available times for today, used to fill the time dropdown on first load
 export function initializeTimes() {
   const times = window.fetchAPI(new Date());
   return times
 }
 
+// Available times for the date the user picked
 export function updateTimes(selectedDate) {
   const times = window.fetchAPI(new Date(selectedDate));
   return times
 }
 
 
+// Reservation form with per-field validation; submission is handled by the parent via submitForm
 function BookingPage({ bookings, submitForm, time, callReducer, bookingConfirmed }) {
   const [date, setDate] = useState("")
   const [fieldErrors, setFieldErrors] = useState([])
@@ -23,6 +26,7 @@ function BookingPage({ bookings, submitForm, time, callReducer, bookingConfirmed
 
   console.log("fieldErrors", fieldErrors)
 
+  // Returns the names of all invalid fields (empty array means the form is valid)
   function validateAll() {
     const errors = []
     if (!date) errors.push("date")
@@ -69,6 +73,7 @@ function BookingPage({ bookings, submitForm, time, callReducer, bookingConfirmed
   }
 
 
+  // The check* handlers below update the field value and add/remove its error on every change
   function checkDate(value) {
     if (!value) {
       setFieldErrors(prev => prev.includes("date") ? prev : [...prev, "date"])

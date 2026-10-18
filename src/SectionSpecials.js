@@ -1,5 +1,6 @@
 import BoxSpecial from "./BoxSpecial.js"
 
+// Static data for this week's specials
 const specials = [
     {
         "imageSrc": "/images/greek-salad.jpg",
@@ -21,6 +22,7 @@ const specials = [
     }
 ]
 
+// Specials section: heading, menu button and a card per special
 function SectionSpecials() {
     return (
         <section id="section-specials" className="flex-container flex-column default-gap">

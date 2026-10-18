@@ -2,6 +2,7 @@
 import './App.css';
 import Nav from "./Nav.js";
 
+// Site header with logo and navigation
 function Header() {
   return (
     <>

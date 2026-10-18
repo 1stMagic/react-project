@@ -1,3 +1,4 @@
+// Simple seeded pseudo-random generator, so the same seed gives the same sequence
 const seededRandom = function (seed) {
     var m = 2**35 - 31;
     var a = 185852;
@@ -7,6 +8,7 @@ const seededRandom = function (seed) {
     };
 }
 
+// Mock API: returns available booking times (17:00-23:30) for a date, seeded by the day of month
 const fetchAPI = function(date) {
     let result = [];
     let random = seededRandom(date.getDate());
@@ -21,6 +23,7 @@ const fetchAPI = function(date) {
     }
     return result;
 };
+// Mock API: pretends to save the booking and always reports success
 const submitAPI = function(formData) {
     return true;
 };

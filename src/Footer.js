@@ -1,6 +1,7 @@
 
 import './App.css';
 
+// Site footer: logo plus link columns (navigation, contact, social media)
 function Footer() {
   return (
     <>

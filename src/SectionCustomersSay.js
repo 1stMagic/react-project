@@ -1,5 +1,6 @@
 import BoxTestimonial from "./BoxTestimonial.js"
 
+// Static testimonial data (rating is 1-5 stars)
 const testimonials = [
     {
         rating: 4,
@@ -23,6 +24,7 @@ const testimonials = [
     }
 ]
 
+// Testimonials section: renders one card per testimonial
 function SectionCustomersSay() {
     return (
         <section id="section-customers-say">
