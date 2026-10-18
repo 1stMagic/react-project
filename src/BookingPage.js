@@ -24,8 +24,6 @@ function BookingPage({ bookings, submitForm, time, callReducer, bookingConfirmed
   const [occasion, setOccasion] = useState("")
   const [availableTimes, setAvailableTimes] = useState([]);
 
-  console.log("fieldErrors", fieldErrors)
-
   // Returns the names of all invalid fields (empty array means the form is valid)
   function validateAll() {
     const errors = []
