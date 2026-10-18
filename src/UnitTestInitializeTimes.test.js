@@ -1,20 +1,19 @@
 import { render, screen } from "@testing-library/react";
-import { vi, expect, test } from "vitest";
-import Main from "./Main";
+import BookingPage from "./BookingPage";
 
 // On first render the times from fetchAPI(today) should appear in the page
 test("initializeTimes loads available times", () => {
   const mockTimes = ["17:00", "18:00", "19:00"];
 
   // Mock the global API so the test controls the returned times
-  window.fetchAPI = vi.fn().mockReturnValue(mockTimes);
+  window.fetchAPI = jest.fn().mockReturnValue(mockTimes);
 
   render(
-    <Main
+    <BookingPage
       bookings={0}
-      submitForm={vi.fn()}
+      submitForm={jest.fn()}
       time=""
-      callReducer={vi.fn()}
+      callReducer={jest.fn()}
     />
   );
 

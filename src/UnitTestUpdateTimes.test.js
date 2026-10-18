@@ -1,28 +1,27 @@
-// Picking a date should call fetchAPI again and replace the times shown.
-// Note: this file has no imports (render, screen, fireEvent, vi, Main) of its own.
+import { fireEvent, render, screen } from "@testing-library/react";
+import BookingPage from "./BookingPage";
+
+// Picking a date should call fetchAPI again and replace the times shown
 test("updateTimes loads available times for selected date", () => {
   const initialTimes = ["17:00", "18:00"];
   const updatedTimes = ["20:00", "21:00"];
 
-  window.fetchAPI = vi
+  window.fetchAPI = jest
     .fn()
     .mockReturnValueOnce(initialTimes)
     .mockReturnValueOnce(updatedTimes);
 
   render(
-    <Main
+    <BookingPage
       bookings={0}
-      submitForm={vi.fn()}
+      submitForm={jest.fn()}
       time=""
-      callReducer={vi.fn()}
+      callReducer={jest.fn()}
     />
   );
 
   const dateInput = screen.getByLabelText("Choose date");
 
-  dateInput.onchange = undefined;
-
-  // Datum auswählen
   fireEvent.change(dateInput, {
     target: { value: "2026-09-15" }
   });
