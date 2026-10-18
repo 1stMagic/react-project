@@ -6,7 +6,7 @@ function Header() {
   return (
     <>
       <header className="flex-container justify-between">
-          <img src={null} alt="Logo Little Lemon" />
+          <img className="logo" src="/images/logo.png" alt="Logo Little Lemon" />
           <Nav />
       </header>
     </>

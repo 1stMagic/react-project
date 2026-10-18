@@ -1,11 +1,176 @@
+:root {
+  --primary-color1: #f4ce14;
+  --primary-color2: #495357;
+  --secondary-color1: #ee9972;
+  --secondary-color2: #fbdabb;
+  --highlight-color1: #edefee;
+  --highlight-color2: #333333;
+}
+
+* {
+  position: relative;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #333;
+  margin: 0;
+  font-family: "karla regular", arial, "sans-serif";
+  color: var(--primary-color2);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "markazi text", serif;
+  margin: 0 0 10px 0;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+h6 {
+  font-size: 18px;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+button,
+.btn {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  background: var(--primary-color1);
+  color: var(--primary-color2);
+  border-color: var(--primary-color1);
+  text-transform: none;
+  border-radius: 5px;
+  padding: 2px 5px;
+
+  &:hover,
+  &:active,
+  &:focus {
+    cursor: pointer;
+    background: var(--primary-color2);
+    color: var(--primary-color1);
+    border-color: var(--primary-color2);
+  }
+}
+
+a {
+  color: var(--primary-color2);
+  font-weight: normal;
+  text-decoration: underline;
+}
+
+header {
+  background: white;
+  gap: 20px;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+footer {
+  background: var(--primary-color2);
+
+  h6,
+  a {
+    color: white;
+  }
+
+  a {
+
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+
+  >div {
+    flex: 1;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      margin-top: 10px;
+
+      a {
+        text-decoration: none;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.testimonials,
+.specials {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.specials {
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+}
+
 .width-limitation-wrapper {
   display: flex;
-  border: 1px solid red;
-  width: 1260px;
+  max-width: 1260px;
   margin: 0 auto;
 }
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+img {
+  max-width: 100%;
+}
+
 header {
   align-items: center;
+
+  .logo {
+    max-width: 150px;
+  }
 
   nav {
     ul {
@@ -16,41 +181,49 @@ header {
       a {
         font-weight: bold;
         text-decoration: none;
+
+        &:hover,
+        &:active,
+        &:focus {
+          text-decoration: underline;
+        }
       }
     }
   }
 }
 
-header, main section, footer {
-  padding: 30px 150px;
+header,
+main section,
+footer {
+  padding: 30px 10%;
   border: 1px dotted green;
 }
 
-footer {
-    >div {
-      flex: 1;
-
-      h6 {
-        margin: 0;
-        font-size: 13px;
-      }
-
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        margin-top: 10px;
-
-        a {
-          text-decoration: none;
-          font-size: 12px;
-        }
-      }
+#section-book-now {
+  form {
+    fieldset {
+      color: var(--primary-color2);
     }
+  }
 }
 
 .flex-container {
   display: flex;
+
+  &.flex-1 {
+    >* {
+      flex: 1;
+    }
+  }
+
+  >h1,
+  >h2,
+  >h3,
+  >h4,
+  >h5,
+  >h6 {
+    margin: 0;
+  }
 }
 
 .flex-column {
@@ -73,6 +246,15 @@ footer {
   border: 1px solid black;
 }
 
+.border-radius {
+  border-radius: 10px;
+
+  img:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+}
+
 .items-center {
   align-items: center;
 }
@@ -85,14 +267,12 @@ footer {
   gap: 20px;
 }
 
-.default-padding {
- padding: 20px;
+.small-gap {
+  gap: 10px;
 }
 
-#reservation-form {
-  display: grid; 
-  max-width: 200px; 
-  gap: 20px;
+.default-padding {
+  padding: 20px;
 }
 
 .input-wrapper {
@@ -108,4 +288,189 @@ footer {
 form .error {
   font-size: 10px;
   color: red;
+}
+
+.display-none {
+  display: none;
+}
+
+.letter {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary-color1);
+  color: var(--primary-color2);
+  text-align: center;
+  line-height: 40px;
+  color: white;
+}
+
+.icon-delivery {
+  width: 20px;
+}
+
+.order-delivery {
+  margin-top: auto;
+}
+
+#section-call-to-action {
+  background: var(--primary-color2);
+
+  .intro {
+    width: 50%;
+  }
+
+  *:not(button) {
+    color: white;
+  }
+
+  img {
+    max-width: 250px;
+    position: absolute;
+    top: 0px;
+    right: 0;
+  }
+}
+
+.cta-image {
+  width: 300px;
+  aspect-ratio: 1/1;
+  position: absolute;
+  top: 20px;
+  right: 0px;
+  border: 2px solid white;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  background-image: url('../public/images/waiter.jpg');
+  z-index: 1;
+}
+
+#section-book-now {
+  color: white;
+
+  a {
+    color: white;
+  }
+
+  fieldset {
+    display: grid;
+    border-radius: 10px;
+    max-width: 200px;
+    gap: 20px;
+    background: white;
+  }
+}
+
+#section-chicago {
+  background: var(--secondary-color2);
+
+  img {
+    max-width: 250px;
+    top: 0px;
+    right: 0;
+  }
+}
+
+#section-specials {
+  background: var(--highlight-color1);
+
+  .special {
+    background: white;
+  }
+}
+
+#section-customers-say {
+  background: var(--primary-color1);
+
+  .testimonial {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
+}
+
+footer {
+  justify-content: space-between;
+
+  img {
+    max-width: 150px;
+    filter: brightness(0) invert(1);
+  }
+
+  .footer-nav {
+    flex: none;
+    display: flex;
+    gap: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-image {
+    display: none;
+  }
+
+  .testimonials,
+  .specials {
+    grid-template-columns: 1fr;
+
+  }
+
+  .specials {
+    grid-template-columns: 1fr;
+  }
+
+  .flex-container {
+    flex-direction: column;
+  }
+
+  header,
+  main section,
+  footer {
+    padding: 30px;
+  }
+
+  footer {
+    gap: 30px;
+
+    .footer-nav {
+      justify-content: space-between;
+      flex-direction: row;
+    }
+  }
+
+  .order-delivery {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  header a {
+    font-size: 14px;
+  }
+
+  #section-call-to-action {
+    .intro {
+      width: 100%;
+    }
+
+    img {
+      display: none;
+    }
+  }
+
+  .testimonial {
+    align-items: center;
+  }
+
+  .width-limitation-wrapper {
+    width: auto;
+    border: none;
+  }
+
+  #section-call-to-action {
+    .intro {
+      width: auto;
+    }
+  }
 }

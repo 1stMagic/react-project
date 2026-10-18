@@ -8,8 +8,8 @@ function BoxTestimonial({testimonial}) {
                 <Star key={index} aria-hidden="true" />
             ))}
             </div>
-            <div className="flex-container default-gap">
-                <img src={testimonial.srcImage || null} alt={testimonial.name} />
+             <div className="flex-container items-center justify-center default-gap">
+                <span className="letter">{testimonial.name.substring(0, 1)}</span>
                 <span className="name">{testimonial.name}</span>
             </div>
             <p>

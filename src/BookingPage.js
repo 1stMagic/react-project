@@ -49,10 +49,10 @@ function BookingPage({ bookings, submitForm, time, callReducer, bookingConfirmed
     setFieldErrors(errors)
     if (errors.length === 0) {
       submitForm({
-          date: date,
-          time: time,
-          numberOfGuests: numberOfGuests,
-          occasion: occasion
+        date: date,
+        time: time,
+        numberOfGuests: numberOfGuests,
+        occasion: occasion
       })
     }
   };
@@ -110,66 +110,73 @@ function BookingPage({ bookings, submitForm, time, callReducer, bookingConfirmed
     <>
       <main>
         <div>
-          <section>
+          <section id="section-book-now">
             <h1>Book Now</h1>
             <p aria-live="polite">Current bookings: {bookings}</p>
             {
               bookingConfirmed &&
-              <h2>Thanks for you reservation!</h2>
+              <>
+                <h2>Thanks for you reservation!</h2>
+                <p><a href="/">Back to home</a></p>
+              </>
             }
-            <form className="border default-padding" id="reservation-form" aria-label="Table reservation form" onSubmit={handleSubmit}>
-              <div className="input-wrapper">
-                <label htmlFor="res-date">Choose date</label>
-                <input type="date" id="res-date" value={date} onChange={(event) => checkDate(event.target.value)} required />
-                {fieldErrors.includes("date") &&
-                  <span className="error">Please select a date!</span>
-                }
-              </div>
+            <form id="reservation-form" aria-label="Table reservation form" onSubmit={handleSubmit}>
+              <fieldset className="border default-padding">
+                <legend className="display-none">Reserve a table</legend>
 
-              <div className="input-wrapper">
-                <label htmlFor="res-time">Choose time</label>
-                <select id="res-time" value={time} onChange={(event) => checkTime(event.target.value)}>
-                  {
-                    availableTimes.map((time, index) => {
-                      return <option value={time} key={index}>{time}</option>
-                    })
+                <div className="input-wrapper">
+                  <label htmlFor="res-date">Choose date</label>
+                  <input type="date" id="res-date" value={date} onChange={(event) => checkDate(event.target.value)} required />
+                  {fieldErrors.includes("date") &&
+                    <span className="error">Please select a date!</span>
                   }
-                </select>
-                {fieldErrors.includes("time") &&
-                  <span className="error">Please select a time!</span>
-                }
-              </div>
+                </div>
 
-              <div className="input-wrapper">
-                <label htmlFor="guests">Number of guests</label>
-                <input
-                  type="number"
-                  placeholder="1"
-                  min="1"
-                  max="10"
-                  id="guests"
-                  required
-                  value={numberOfGuests}
-                  onChange={(event) => checkNumberOfGuest(event.target.value)}
-                />
-                {fieldErrors.includes("numberOfGuests") &&
-                  <span className="error">Enter at least 1 guest!</span>
-                }
-              </div>
+                <div className="input-wrapper">
+                  <label htmlFor="res-time">Choose time</label>
+                  <select id="res-time" value={time} onChange={(event) => checkTime(event.target.value)}>
+                    {
+                      availableTimes.map((time, index) => {
+                        return <option value={time} key={index}>{time}</option>
+                      })
+                    }
+                  </select>
+                  {fieldErrors.includes("time") &&
+                    <span className="error">Please select a time!</span>
+                  }
+                </div>
 
-              <div className="input-wrapper">
-                <label htmlFor="occasion">Occasion</label>
-                <select id="occasion" value={occasion} onChange={(event) => checkOccasion(event.target.value)} required>
-                  <option value="">Please select&hellip;</option>
-                  <option value="Birthday">Birthday</option>
-                  <option value="Anniversary">Anniversary</option>
-                  <option value="Other">Other</option>
-                </select>
-                {fieldErrors.includes("occasion") &&
-                  <span className="error">Please select an occasion!</span>
-                }
-              </div>
-              <input role="button" type="submit" value="Make Your reservation" aria-label="Make Your reservation" required />
+                <div className="input-wrapper">
+                  <label htmlFor="guests">Number of guests</label>
+                  <input
+                    type="number"
+                    placeholder="1"
+                    min="1"
+                    max="10"
+                    id="guests"
+                    required
+                    value={numberOfGuests}
+                    onChange={(event) => checkNumberOfGuest(event.target.value)}
+                  />
+                  {fieldErrors.includes("numberOfGuests") &&
+                    <span className="error">Enter at least 1 guest!</span>
+                  }
+                </div>
+
+                <div className="input-wrapper">
+                  <label htmlFor="occasion">Occasion</label>
+                  <select id="occasion" value={occasion} onChange={(event) => checkOccasion(event.target.value)} required>
+                    <option value="">Please select&hellip;</option>
+                    <option value="Birthday">Birthday</option>
+                    <option value="Anniversary">Anniversary</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  {fieldErrors.includes("occasion") &&
+                    <span className="error">Please select an occasion!</span>
+                  }
+                </div>
+                <button type="submit" required>Make Your reservation </button>
+              </fieldset>
             </form>
           </section>
         </div>

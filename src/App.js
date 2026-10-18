@@ -39,7 +39,6 @@ function App() {
 
   return (
     <div className="width-limitation-wrapper flex-container flex-column">
-      time {time}
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />

@@ -3,25 +3,21 @@ import BoxTestimonial from "./BoxTestimonial.js"
 const testimonials = [
     {
         rating: 4,
-        imageSrc: "",
         name: "Marc J.",
         reviewText: "Very delicious food."
     },
     {
         rating: 5,
-        imageSrc: "",
         name: "Julia M.",
         reviewText: "Best restaurant in town."
     },
     {
         rating: 4,
-        imageSrc: "",
         name: "John K.",
         reviewText: "Love to order online."
     },
     {
         rating: 5,
-        imageSrc: "",
         name: "Sandra F.",
         reviewText: "So good. Will return."
     }
@@ -29,9 +25,9 @@ const testimonials = [
 
 function SectionCustomersSay() {
     return (
-        <section>
+        <section id="section-customers-say">
             <h2>Testimonials</h2>
-            <div className="flex-container default-gap">
+            <div className="testimonials default-gap">
                 {testimonials.map((testimonial, index) => (
                     <BoxTestimonial testimonial={testimonial} key={index} />
                 ))}

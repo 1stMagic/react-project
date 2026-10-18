@@ -5,9 +5,10 @@ function Footer() {
   return (
     <>
       <footer className="flex-container">
-          <div>
-            <img src={null} alt="Logo" />
-          </div>
+        <div className="flex-none">
+          <img src="/images/logo.png" alt="Logo" />
+        </div>
+        <div className="footer-nav">
           <div>
             <h6>Doormat</h6>
             <ul>
@@ -18,6 +19,7 @@ function Footer() {
               <li><a href="">Login</a></li>
             </ul>
           </div>
+        <div>
           <div>
             <h6>Contact</h6>
             <ul>
@@ -26,6 +28,8 @@ function Footer() {
               <li><a href="">Email</a></li>
             </ul>
           </div>
+        </div>
+        <div>
           <div>
             <h6>Social Media</h6>
             <ul>
@@ -34,6 +38,8 @@ function Footer() {
               <li><a href="">YouTube</a></li>
             </ul>
           </div>
+        </div>
+        </div>
       </footer>
     </>
   );

@@ -8,11 +8,11 @@ function SectionCallToAction() {
     }
 
     return (
-        <section>
-            <div className="flex-container default-gap">
-                <div className="flex-container flex-column flex-1">
+        <section id="section-call-to-action">
+            <div className="flex-container default-gap items-center">
+                <div className="intro flex-container flex-column default-gap">
                     <h2>LittleLemon</h2>
-                    <span>Chicago</span>
+                    <h3>Chicago</h3>
                     <p>
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
                     </p>
@@ -20,7 +20,8 @@ function SectionCallToAction() {
                         Reserve a table
                     </button>
                 </div>
-                <img className="flex-1" src={null} alt="Image 1" />
+                <div className="cta-image"></div>
+                {/*<img className="border border-radius" src="/images/waiter.jpg" alt="Waiter with plate" /> */}
             </div>
         </section>
     )
